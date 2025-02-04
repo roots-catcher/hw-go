@@ -43,7 +43,7 @@ linters:
     - durationcheck
     - errorlint
     - exhaustive
-    # - exportloopref
+    - exportloopref
     - funlen
     - gci
     - gocognit
