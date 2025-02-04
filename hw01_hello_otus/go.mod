@@ -1,4 +1,4 @@
-module github.com/roots-catcher/hw-go/hw01_hello_otus
+module github.com/OtusGolang/home_work/tree/master/hw01_hello_otus
 
 go 1.22
 
