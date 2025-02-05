@@ -35,6 +35,7 @@ linters:
   disable-all: true
   enable:
     - asciicheck
+    - copyloopvar
     - depguard
     - dogsled
     - dupl
