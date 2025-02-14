@@ -25,8 +25,10 @@ func Unpack(input string) (string, error) {
 		if i == 0 && isDigit(v) {
 			return "", ErrInvalidString
 		}
-		if isDigit(v) && isDigit(sliceStr[i+1]) {
-			return "", ErrInvalidString
+		if isDigit(v) && (i+1) < len(sliceStr) {
+			if isDigit(sliceStr[i+1]) {
+				return "", ErrInvalidString
+			}
 		}
 		if i+1 < len(sliceStr) && isDigit(sliceStr[i+1]) {
 			multi := int(sliceStr[i+1] - '0')
