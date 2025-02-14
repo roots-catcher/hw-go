@@ -18,14 +18,16 @@ func Unpack(input string) (string, error) {
 	}
 	sliceStr := []rune(input)
 	var result string
-	var skip int = 999
+	skip := 999
 
 	for i, v := range sliceStr {
 
 		if i == 0 && isDigit(v) {
 			return "", ErrInvalidString
 		}
-
+		if isDigit(v) && isDigit(sliceStr[i+1]) {
+			return "", ErrInvalidString
+		}
 		if i+1 < len(sliceStr) && isDigit(sliceStr[i+1]) {
 			multi := int(sliceStr[i+1] - '0')
 			skip = i + 1
