@@ -21,7 +21,6 @@ func Unpack(input string) (string, error) {
 	skip := 999
 
 	for i, v := range sliceStr {
-
 		if i == 0 && isDigit(v) {
 			return "", ErrInvalidString
 		}
