@@ -35,6 +35,8 @@ func Unpack(input string) (string, error) {
 			}
 		} else if i != skip {
 			result += string(v)
+		} else {
+			result += string(v)
 		}
 	}
 
