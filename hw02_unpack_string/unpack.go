@@ -18,7 +18,7 @@ func Unpack(input string) (string, error) {
 	}
 	sliceStr := []rune(input)
 	var result string
-	var skip int
+	var skip int = 999
 
 	for i, v := range sliceStr {
 
@@ -34,8 +34,6 @@ func Unpack(input string) (string, error) {
 				result += string(v)
 			}
 		} else if i != skip {
-			result += string(v)
-		} else {
 			result += string(v)
 		}
 	}
