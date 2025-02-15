@@ -18,26 +18,25 @@ func Unpack(input string) (string, error) {
 	}
 	sliceStr := []rune(input)
 	var result string
-	skip := 999
 
-	for i, v := range sliceStr {
-		if i == 0 && isDigit(v) {
+	for i := 0; i < len(sliceStr); {
+		if i == 0 && isDigit(sliceStr[i]) {
 			return "", ErrInvalidString
 		}
-		if isDigit(v) && (i+1) < len(sliceStr) {
+		if isDigit(sliceStr[i]) && (i+1) < len(sliceStr) {
 			if isDigit(sliceStr[i+1]) {
 				return "", ErrInvalidString
 			}
 		}
 		if i+1 < len(sliceStr) && isDigit(sliceStr[i+1]) {
 			multi := int(sliceStr[i+1] - '0')
-			skip = i + 1
 
 			for j := 0; j < multi; j++ {
-				result += string(v)
+				result += string(sliceStr[i])
 			}
-		} else if i != skip {
-			result += string(v)
+			i++
+		} else {
+			result += string(sliceStr[i])
 		}
 	}
 
