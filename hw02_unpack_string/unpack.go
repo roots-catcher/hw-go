@@ -18,11 +18,6 @@ func Unpack(input string) (string, error) {
 		if i == 0 && unicode.IsDigit(sliceStr[i]) {
 			return "", ErrInvalidString
 		}
-		if unicode.IsDigit(sliceStr[i]) && (i+1) < len(sliceStr) {
-			if unicode.IsDigit(sliceStr[i+1]) {
-				return "", ErrInvalidString
-			}
-		}
 		if i+1 < len(sliceStr) && unicode.IsDigit(sliceStr[i+1]) {
 			multi := int(sliceStr[i+1] - '0')
 
@@ -32,6 +27,11 @@ func Unpack(input string) (string, error) {
 			i++
 		} else {
 			result += string(sliceStr[i])
+		}
+		if unicode.IsDigit(sliceStr[i]) && (i+1) < len(sliceStr) {
+			if unicode.IsDigit(sliceStr[i+1]) {
+				return "", ErrInvalidString
+			}
 		}
 	}
 
