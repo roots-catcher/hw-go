@@ -15,10 +15,7 @@ func Top10(input string) []string {
 	wordFreq := make(map[string]int)
 
 	for _, str := range sliceStr {
-		if str == "-" {
-			continue
-		}
-		wordFreq[str] += 1
+		wordFreq[str]++
 	}
 	type wordCnt struct {
 		word  string
