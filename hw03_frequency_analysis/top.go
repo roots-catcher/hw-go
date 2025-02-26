@@ -2,7 +2,7 @@ package hw03frequencyanalysis
 
 import (
 	"sort"
-	"string"
+	"strings"
 )
 
 func Top10(input string) []string {
@@ -10,7 +10,7 @@ func Top10(input string) []string {
 		return []string{}
 	}
 
-	sliceStr := string.Fields(input)
+	sliceStr := strings.Fields(input)
 
 	wordFreq := make(map[string]int)
 
@@ -25,9 +25,9 @@ func Top10(input string) []string {
 		count int
 	}
 
-	var counts []wordCount
+	var counts []wordCnt
 	for w, cnt := range wordFreq {
-		counts = append(counts, wordCount{word: w, count: cnt})
+		counts = append(counts, wordCnt{word: w, count: cnt})
 	}
 
 	sort.Slice(counts, func(i, j int) bool {
