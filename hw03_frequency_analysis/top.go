@@ -1,9 +1,9 @@
 package hw03frequencyanalysis
 
-import {
-	"string"
+import (
 	"sort"
-}
+	"string"
+)
 
 func Top10(input string) []string {
 	if len(input) == 0 {
@@ -13,12 +13,12 @@ func Top10(input string) []string {
 	sliceStr := string.Fields(input)
 
 	wordFreq := make(map[string]int)
-	
+
 	for _, str := range sliceStr {
 		if str == "-" {
 			continue
 		}
-		wordFreq[str]+=1
+		wordFreq[str] += 1
 	}
 	type wordCnt struct {
 		word  string
@@ -29,7 +29,7 @@ func Top10(input string) []string {
 	for w, cnt := range wordFreq {
 		counts = append(counts, wordCount{word: w, count: cnt})
 	}
-	
+
 	sort.Slice(counts, func(i, j int) bool {
 		if counts[i].count == counts[j].count {
 			return counts[i].word < counts[j].word
