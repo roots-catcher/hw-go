@@ -22,7 +22,7 @@ func Top10(input string) []string {
 		count int
 	}
 
-	var counts []wordCnt
+	counts := make([]wordCnt, 0)
 	for w, cnt := range wordFreq {
 		counts = append(counts, wordCnt{word: w, count: cnt})
 	}
